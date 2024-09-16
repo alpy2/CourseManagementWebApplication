@@ -1,0 +1,40 @@
+﻿@model IEnumerable<OlguSports.Models.Application>
+
+<h2>Applications</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Email</th>
+            <th>Age</th>
+            <th>Course</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var application in Model)
+        {
+            <tr>
+                <td>@application.Name</td>
+                <td>@application.Surname</td>
+                <td>@application.Email</td>
+                <td>@application.Age</td>
+                <td>@application.Course?.Name</td>
+                <td>@application.Status</td> 
+                <td>
+                    <form asp-action="ApproveApplication" method="post" style="display:inline;">
+                        <input type="hidden" name="id" value="@application.Id" />
+                        <button type="submit" class="btn btn-success">Approve</button>
+                    </form>
+                    <form asp-action="RejectApplication" method="post" style="display:inline;">
+                        <input type="hidden" name="id" value="@application.Id" />
+                        <button type="submit" class="btn btn-danger">Reject</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,28 @@
+﻿@model IEnumerable<OlguSports.Models.Application>
+
+<h2>My Applications</h2>
+
+@if (Model.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Course</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var application in Model)
+            {
+                <tr>
+                    <td>@application.Course?.Name</td>
+                    <td>@application.Status</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>You have not applied for any courses yet.</p>
+}

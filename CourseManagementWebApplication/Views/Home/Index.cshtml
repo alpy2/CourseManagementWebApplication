@@ -1,0 +1,51 @@
+﻿@model IEnumerable<OlguSports.Models.Course>
+
+<div class="container mt-4">
+    <h1>Welcome to Olgu Sports</h1>
+    <p>
+        At Olgu Sports, we are dedicated to providing top-quality sports training and educational programs for individuals of all skill levels.
+        Whether you're just starting or looking to enhance your skills, our professional coaches and comprehensive courses are designed to help
+        you achieve your athletic goals. Our mission is to inspire and empower individuals through sports, fostering a healthy and active community.
+    </p>
+    <p>
+        We offer a wide range of sports courses tailored to meet the needs of our participants. From beginner classes to advanced skill
+        training, Olgu Sports ensures a supportive and dynamic learning environment. Our expert coaches are passionate about teaching and
+        dedicated to helping each participant succeed.
+    </p>
+
+    <h2>Why Choose Olgu Sports?</h2>
+    <ul>
+        <li><strong>Expert Coaches:</strong> Learn from seasoned professionals with years of experience in their respective sports.</li>
+        <li><strong>Comprehensive Programs:</strong> Our courses cover everything from basic fundamentals to advanced techniques.</li>
+        <li><strong>Flexible Scheduling:</strong> We offer courses at various times to fit your busy lifestyle.</li>
+        <li><strong>Community Focus:</strong> Join a supportive community that values teamwork, perseverance, and personal growth.</li>
+    </ul>
+
+    <h2>Available Courses</h2>
+
+    @if (Model?.Any() == true)
+    {
+        <ul>
+            @foreach (var course in Model)
+            {
+                <li>
+                    <strong>@course.Name</strong> - @course.Description
+                    <br />
+                    <em>Duration:</em> @course.Duration weeks
+                </li>
+            }
+        </ul>
+    }
+    else
+    {
+        <p>No courses available at the moment. Please check back later or contact us for more information on upcoming programs.</p> <!-- Fallback message -->
+    }
+
+    <div class="mt-4">
+        <h3>Join Us Today!</h3>
+        <p>
+            Ready to start your sports journey? Explore our courses and find the right program for you. Create an account, then click the "Apply" button to sign up for
+            a course and take the first step towards reaching your full potential with Olgu Sports!
+        </p>
+    </div>
+</div>

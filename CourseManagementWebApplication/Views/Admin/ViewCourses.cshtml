@@ -1,0 +1,30 @@
+﻿@model IEnumerable<OlguSports.Models.Course>
+
+<h2>Courses</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var course in Model)
+        {
+            <tr>
+                <td>@course.Name</td>
+                <td>@course.Description</td>
+                <td>
+                    <form asp-action="DeleteCourse" method="post" style="display:inline;">
+                        <input type="hidden" name="id" value="@course.Id" />
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a href="@Url.Action("AddCourse", "Admin")" class="btn btn-primary">Add New Course</a>
